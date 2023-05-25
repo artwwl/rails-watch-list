@@ -1,0 +1,21 @@
+
+<div class="new-page container">
+  <h1 class="my-4">Add a movie to your list</h1>
+  <div class="d-grid">
+    <% @movies.each do |movie| %>
+      <% unless @list.movies.include?(movie) %>
+          <div class="card">
+          <img src="<%= movie.poster_url %>" alt="">
+          <div class="d-flex justify-content-between p-3">
+          <h3><%= movie.title %></h3>
+          <p><%= movie.rating %>/10</p>
+          </div>
+          <%= simple_form_for([@list, @bookmark]) do |f| %>
+            <%= f.hidden_field :movie_id, value: movie.id %>
+            <%= f.submit class: "btn btn-primary" %>
+          <% end %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+</div>
