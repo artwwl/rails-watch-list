@@ -1,6 +1,7 @@
 <div class="container">
   <div class="d-flex align-items-center justify-content-between">
     <h1><%= @list.name %></h1>
+    <%= cl_image_tag @list.photo.key, height: 300, width: 400, crop: :fill, cloud_name: "dhccdbfpe" %>
     <div class="buttons">
       <%= link_to "Add movie to list", new_list_bookmark_path(@list), class: "btn btn-primary" %>
       <%= link_to "Back", lists_path, class: "btn btn-secondary" %>

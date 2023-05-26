@@ -1,0 +1,59 @@
+<section id="home">
+  <div class="banner py-5 mb-5">
+    <div class="container">
+      <h1>Watchlist app</h1>
+      <p>If you're a movie aficionado, this is the place for you!</p>
+      <% if @lists.empty? %>
+        <%= link_to "Get started", "#get-started", class: "btn btn-danger" %>
+      <% else %>
+        <%= link_to "Your lists", "#your-lists", class: "btn btn-danger" %>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="d-grid gap-5">
+    <section id="about" class="d-flex gap-3 container">
+      <div class="text">
+        <h2>Organize what you want to watch!</h2>
+        <p>With our app you're able to create your watchlists and get reviews from your friends. So grab yourself some popcorn, make some watchlists, and binging!</p>
+      </div>
+      <img src="https://images.unsplash.com/photo-1584474345633-cfd33a207dc8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=503&q=80" alt="">
+    </section>
+  <div class="divider1"></div>
+
+    <section id="get-started" class="container">
+      <h2>Create your own watchlist!</h2>
+      <div class="my-5 list-first-form d-flex align-items-center gap-5">
+        <img src="https://images.unsplash.com/photo-1539481915544-f5cd50562d66?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=428&q=80" alt="">
+        <div>
+          <%= simple_form_for(@list) do |f| %>
+            <div class="d-grid gap-3">
+              <%= f.input :name, placeholder: "List name" %>
+              <%= f.input :photo, as: :file %>
+              <%= f.submit class: "btn btn-danger" %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </section>
+
+    <% unless @lists.empty? %>
+      <div class="divider2"></div>
+      <section id="your-lists" class="container">
+        <div class="d-flex justify-content-between">
+          <h2>Your Lists</h2>
+          <%= link_to "See all", lists_path, class: "btn btn-danger" %>
+        </div>
+        <div class="list-cards d-flex gap-3 my-5 justify-content-between">
+          <% @lists[(0...3)].each do |list| %>
+            <%= link_to list_path(list) do %>
+              <div class="list-card" style="background-image: url('<%= cl_image_path list.photo.key, height: 252, crop: :fill %>')">
+                <h3 class="text-center w-100"><%= list.name %></h3>
+              </div>
+            <% end %>
+          <% end %>
+        </div>
+      </section>
+    <% end %>
+  </div>
+</section>

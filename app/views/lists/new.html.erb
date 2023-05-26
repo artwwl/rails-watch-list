@@ -1,6 +1,7 @@
 <div class="container text-center">
   <%= simple_form_for @list, class: "d-flex" do |f| %>
     <%= f.input :name, placeholder: "List name" %>
+    <%= f.input :photo, as: :file %>
     <%= f.submit class: "btn btn-primary" %>
   <% end %>
 </div>

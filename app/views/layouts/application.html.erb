@@ -11,12 +11,20 @@
   </head>
 
   <body>
-    <nav class="navbar navbar-dark bg-primary justify-content-between border-bottom mb-5 py-3">
+    <nav class="navbar navbar-dark bg-danger justify-content-between border-bottom py-3">
       <div class="container">
-        <%= link_to "Lists", root_path, class: "navbar-brand" %>
-        <%= link_to "New List", new_list_path, class: "btn btn-light" %>
+        <%= link_to "WachtlistApp", root_path, class: "navbar-brand" %>
+
+
+        <%= link_to "New List", new_list_path, class: "btn btn-danger" %>
       </div>
     </nav>
     <%= yield %>
+
+    <footer class="bg-danger mt-5">
+      <%= link_to root_path do %>
+        <h2 class="text-center w-100">WatchlistApp</h2>
+      <% end %>
+    </footer>
   </body>
 </html>
