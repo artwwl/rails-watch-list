@@ -8,7 +8,13 @@
 require 'open-uri'
 require 'json'
 
-puts "Seeding database..."
+puts "Starting seeding process database..."
+
+puts "Deleting previous objects..."
+
+Movie.destroy_all
+
+puts "Seeding.."
 
 url = "https://tmdb.lewagon.com/movie/top_rated"
 response = URI.open(url).read

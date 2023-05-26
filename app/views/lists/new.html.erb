@@ -1,6 +1,6 @@
 <div class="container text-center">
-  <%= simple_form_for(@list) do |f| %>
-    <%= f.text_field :name, placeholder: "List name" %>
-    <%= f.submit %>
+  <%= simple_form_for @list, class: "d-flex" do |f| %>
+    <%= f.input :name, placeholder: "List name" %>
+    <%= f.submit class: "btn btn-primary" %>
   <% end %>
 </div>

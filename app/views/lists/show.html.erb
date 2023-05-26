@@ -21,4 +21,26 @@
       </div>
     <% end %>
   </div>
+  <div class="list-rating d-flex">
+    <div class="reviews-display">
+      <ul class="list-group">
+        <%= @list.reviews.each do |review| %>
+          <li class="list-group-item">
+            <div class="star-rating d-flex">
+              <%= review.rating.times do %>
+                <i class="fa-solid fa-star"></i>
+              <% end %>
+              <%= (5 - review.rating).times do %>
+                <i class="fa-regular fa-star"></i>
+              <% end %>
+            </div>
+            <p>"<%= review.comment %>"</p>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+    <div class="reviews-form">
+
+    </div>
+  </div>
 </div>

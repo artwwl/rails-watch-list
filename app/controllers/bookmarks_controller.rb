@@ -12,7 +12,7 @@ class BookmarksController < ApplicationController
     @bookmark.list_id = @list.id
 
     if @bookmark.save
-      redirect_to list_path(@list)
+      redirect_to new_list_bookmark_path(@list)
     else
       render :new, status: :unprocessable_entity
     end

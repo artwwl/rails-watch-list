@@ -1,6 +1,10 @@
-.new-page {
+#new-bookmark-page {
   .d-grid {
     grid-template-columns: 1fr 1fr 1fr;
     gap: 16px;
+  }
+
+  .title-btn a{
+    margin-bottom: 0.5rem;
   }
 }
